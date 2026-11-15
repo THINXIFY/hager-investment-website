@@ -1,0 +1,43 @@
+# HAGER INVESTMENT website. One self-contained service, isolated from other sites on the VPS:
+#  - its own project name, container name, image name and network;
+#  - listens on 127.0.0.1 only (never exposed publicly); the host's Nginx proxies to it.
+# Values come from .env.production (see .env.production.example). Run via ./deploy.sh.
+name: hager-investment
+
+services:
+  web:
+    container_name: hager-investment-web
+    image: hager-investment-web:latest
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://hager-investment.com}
+        NEXT_PUBLIC_CONTACT_EMAIL: ${NEXT_PUBLIC_CONTACT_EMAIL:-}
+        NEXT_PUBLIC_CONTACT_PHONE: ${NEXT_PUBLIC_CONTACT_PHONE:-}
+    env_file: .env.production
+    environment:
+      # Fixed paths inside the container (mapped to the folders below)
+      DOCUMENTS_DIR: /app/private/documents
+      OTP_STORE_PATH: /app/.data/otp-challenges.json
+    ports:
+      - "127.0.0.1:${HAGER_PORT:-3100}:3000"
+    volumes:
+      - ./data/otp:/app/.data
+      - ./private/documents:/app/private/documents:ro
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    mem_limit: 1g
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - hager
+
+networks:
+  hager:
+    name: hager-investment-net

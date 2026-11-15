@@ -1,0 +1,30 @@
+# Keep the build context small and free of secrets.
+.git
+.github
+node_modules
+.next
+out
+build
+coverage
+*.tsbuildinfo
+next-env.d.ts
+
+# Secrets and server-only data never enter the image
+.env*
+!.env.example
+data
+.data
+private/documents/*
+!private/documents/README.md
+
+# Not needed to run the website
+review
+_legacy-static
+deploy
+DEPLOYMENT.md
+deploy.sh
+docker-compose.yml
+Dockerfile
+.dockerignore
+*.log
+.DS_Store
