@@ -5,7 +5,7 @@ set -uo pipefail
 
 DOMAIN="hager-investment.com"
 EXPECTED_IP="2.25.169.72"
-PORT="${HAGER_PORT:-3100}"
+PORT="${HAGER_PORT:-4300}"
 
 pass() { printf '  \033[1;32m✔\033[0m %s\n' "$*"; }
 warn() { printf '  \033[1;33m!\033[0m %s\n' "$*"; }

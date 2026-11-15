@@ -20,7 +20,7 @@ services:
       DOCUMENTS_DIR: /app/private/documents
       OTP_STORE_PATH: /app/.data/otp-challenges.json
     ports:
-      - "127.0.0.1:${HAGER_PORT:-3100}:3000"
+      - "127.0.0.1:${HAGER_PORT:-4300}:3000"
     volumes:
       - ./data/otp:/app/.data
       - ./private/documents:/app/private/documents:ro

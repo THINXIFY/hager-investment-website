@@ -1,6 +1,6 @@
 # Deploying HAGER INVESTMENT
 
-The website runs in **one Docker container** on the VPS, listening only on `127.0.0.1:3100`.
+The website runs in **one Docker container** on the VPS, listening only on `127.0.0.1:4300`.
 The server's **Nginx** receives visitors on ports 80/443, handles HTTPS (Let's Encrypt) and passes requests to the container.
 Only one Nginx file, `hager-investment.com.conf`, is added, and it answers only for `hager-investment.com` and `www.hager-investment.com`. Your other websites, containers and certificates are not changed.
 
@@ -9,7 +9,7 @@ Only one Nginx file, `hager-investment.com.conf`, is added, and it answers only 
 | Live address | `https://hager-investment.com` (www, and http, redirect here) |
 | VPS | `2.25.169.72` |
 | Code on the VPS | `/opt/hager-investment` |
-| Container | `hager-investment-web` (port `127.0.0.1:3100`) |
+| Container | `hager-investment-web` (port `127.0.0.1:4300`) |
 | Update command | `cd /opt/hager-investment && ./deploy.sh` |
 
 ---
@@ -54,7 +54,7 @@ Read the result:
   apt install -y nginx certbot
   ```
 - **"Another program owns 80/443"** → **stop here** and read "Different web server" at the end. Do not install Nginx; it would conflict with your other sites.
-- **Port 3100 is taken** → choose another free port (e.g. 3110): set `HAGER_PORT=3110` in `.env.production` (step 3) and replace `3100` in both files in `deploy/nginx/`.
+- **Port 4300 is taken** → choose another free port (e.g. 4310): set `HAGER_PORT=4310` in `.env.production` (step 3) and replace `4300` in both files in `deploy/nginx/`.
 - **DNS** shows the wrong IP → finish step 0 first (the certificate in step 6 needs it).
 
 If Nginx is already installed but Certbot is not: `apt install -y certbot`.
@@ -90,7 +90,7 @@ cd /opt/hager-investment
 ./deploy.sh
 ```
 The first build takes about 3–6 minutes. It ends with **"Live: version … is healthy"**.
-Check: `curl -I http://127.0.0.1:3100` → `HTTP/1.1 200 OK`.
+Check: `curl -I http://127.0.0.1:4300` → `HTTP/1.1 200 OK`.
 
 ### Step 6: Connect the domain (Nginx, HTTP first)
 ```bash
@@ -220,8 +220,8 @@ git pull
 ## Different web server
 
 If `check-server.sh` shows that something other than Nginx owns ports 80/443 (a hosting control panel such as CloudPanel, aaPanel or Plesk, or Apache, Caddy, Traefik or a Docker proxy), don't install Nginx. Instead:
-1. Do steps 1, 3, 4 and 5 (the website then runs on `127.0.0.1:3100`).
-2. In that tool, create a site for `hager-investment.com` and `www.hager-investment.com` as a **reverse proxy** to `http://127.0.0.1:3100`, enable its Let's Encrypt SSL, and set a redirect from `www` to `hager-investment.com`.
+1. Do steps 1, 3, 4 and 5 (the website then runs on `127.0.0.1:4300`).
+2. In that tool, create a site for `hager-investment.com` and `www.hager-investment.com` as a **reverse proxy** to `http://127.0.0.1:4300`, enable its Let's Encrypt SSL, and set a redirect from `www` to `hager-investment.com`.
 
 ---
 
@@ -230,7 +230,7 @@ If `check-server.sh` shows that something other than Nginx owns ports 80/443 (a 
 | File | Purpose |
 |---|---|
 | `Dockerfile` | Builds the production image (Next.js standalone server, non-root user, health check) |
-| `docker-compose.yml` | The container: port `127.0.0.1:3100`, settings, data folders, restart policy |
+| `docker-compose.yml` | The container: port `127.0.0.1:4300`, settings, data folders, restart policy |
 | `.env.production.example` | Template for `.env.production` (never committed) |
 | `deploy.sh` | One-command update with health check and automatic rollback |
 | `deploy/check-server.sh` | Read-only server check |

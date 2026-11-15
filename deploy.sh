@@ -27,7 +27,7 @@ if grep -Eq '^NEXT_PUBLIC_(SHOW_DRAFTS|REVIEW_MODE)=.+' "$ENV_FILE"; then
 fi
 
 PORT="$(grep -E '^HAGER_PORT=' "$ENV_FILE" | cut -d= -f2 | tr -d '[:space:]')"
-PORT="${PORT:-3100}"
+PORT="${PORT:-4300}"
 compose() { docker compose --env-file "$ENV_FILE" "$@"; }
 
 # Folders the container writes to / reads from (owned by the container's user, uid 1001)
