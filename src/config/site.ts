@@ -1,7 +1,7 @@
 export type NavItem = { label: string; href: string };
 
 export const siteConfig = {
-  name: "HAGER Investment",
+  name: "HAGER INVESTMENT",
   shortName: "HAGER",
   tagline: "Patient capital for enduring value.",
   description:

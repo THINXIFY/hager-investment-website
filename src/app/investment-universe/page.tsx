@@ -8,13 +8,14 @@ import { IvLongTerm } from "@/components/sections/investment-universe/IvLongTerm
 import { IvPerspective } from "@/components/sections/investment-universe/IvPerspective";
 import { IvSectors } from "@/components/sections/investment-universe/IvSectors";
 import { sharedOpenGraph, siteConfig } from "@/config/site";
+import { seo } from "@/content/seo";
 import { ivHero } from "@/content/investment-universe";
 
 export const metadata: Metadata = {
-  title: "Investment Universe",
-  description: ivHero.description,
+  title: seo.investmentUniverse.title,
+  description: seo.investmentUniverse.description,
   alternates: { canonical: "/investment-universe" },
-  openGraph: { ...sharedOpenGraph, title: `Investment Universe | ${siteConfig.name}`, description: ivHero.description, url: "/investment-universe" },
+  openGraph: { ...sharedOpenGraph, title: `${seo.investmentUniverse.title} | ${siteConfig.name}`, description: seo.investmentUniverse.description, url: "/investment-universe" },
 };
 
 /** Verified organisation facts only; sectors are described as page content, not as holdings. */

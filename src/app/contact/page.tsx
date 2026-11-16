@@ -7,13 +7,14 @@ import { CtFaq } from "@/components/sections/contact/CtFaq";
 import { CtHero } from "@/components/sections/contact/CtHero";
 import { CtOffice } from "@/components/sections/contact/CtOffice";
 import { contactDetails, sharedOpenGraph, siteConfig } from "@/config/site";
+import { seo } from "@/content/seo";
 import { ctFaq, ctHero } from "@/content/contact";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: ctHero.description,
+  title: seo.contact.title,
+  description: seo.contact.description,
   alternates: { canonical: "/contact" },
-  openGraph: { ...sharedOpenGraph, title: `Contact | ${siteConfig.name}`, description: ctHero.description, url: "/contact" },
+  openGraph: { ...sharedOpenGraph, title: `${seo.contact.title} | ${siteConfig.name}`, description: seo.contact.description, url: "/contact" },
 };
 
 const [street, locality] = contactDetails.address ?? [];

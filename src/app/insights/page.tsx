@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   title: "Insights & Perspectives",
   description: inHero.description,
   alternates: { canonical: "/insights" },
+  /* Postponed section with sample content: kept out of search results until real articles are published. */
+  robots: { index: false, follow: true },
   openGraph: { ...sharedOpenGraph, title: `Insights & Perspectives | ${siteConfig.name}`, description: inHero.description, url: "/insights" },
 };
 

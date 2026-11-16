@@ -7,13 +7,14 @@ import { ApHero } from "@/components/sections/approach/ApHero";
 import { ApPhilosophy } from "@/components/sections/approach/ApPhilosophy";
 import { ApStages } from "@/components/sections/approach/ApStages";
 import { sharedOpenGraph, siteConfig } from "@/config/site";
+import { seo } from "@/content/seo";
 import { apHero } from "@/content/approach";
 
 export const metadata: Metadata = {
-  title: "Our Approach",
-  description: apHero.description,
+  title: seo.approach.title,
+  description: seo.approach.description,
   alternates: { canonical: "/approach" },
-  openGraph: { ...sharedOpenGraph, title: `Our Approach | ${siteConfig.name}`, description: apHero.description, url: "/approach" },
+  openGraph: { ...sharedOpenGraph, title: `${seo.approach.title} | ${siteConfig.name}`, description: seo.approach.description, url: "/approach" },
 };
 
 /** Verified organisation facts only; the approach is proposed page content. */

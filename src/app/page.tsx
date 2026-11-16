@@ -8,19 +8,44 @@ import { Hero } from "@/components/sections/home/hero/Hero";
 import { Philosophy } from "@/components/sections/home/Philosophy";
 import { Sectors } from "@/components/sections/home/sectors/Sectors";
 import { Statement } from "@/components/sections/home/Statement";
-import { siteConfig } from "@/config/site";
+import { contactDetails, shareImage, siteConfig } from "@/config/site";
+import { seo } from "@/content/seo";
 
-/** Verified facts only. */
+/** Verified facts only (company register, public LEI record, company-supplied contact). */
 const organisationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteConfig.name,
-  url: siteConfig.url,
-  logo: new URL("/brand/hager-investment-logo.png", siteConfig.url).toString(),
-  description: siteConfig.description,
-  foundingDate: siteConfig.foundingYear,
-  address: { "@type": "PostalAddress", addressCountry: siteConfig.country },
-  identifier: siteConfig.registration,
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      legalName: "HAGER INVESTMENT",
+      url: siteConfig.url,
+      logo: new URL("/icon.png", siteConfig.url).toString(),
+      image: new URL(shareImage.url, siteConfig.url).toString(),
+      description: seo.home.description,
+      foundingDate: siteConfig.foundingYear,
+      email: contactDetails.email ?? undefined,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "1 Rue de Turi",
+        postalCode: "L-3378",
+        addressLocality: "Livange",
+        addressCountry: siteConfig.country,
+      },
+      leiCode: siteConfig.lei,
+      identifier: { "@type": "PropertyValue", propertyID: "RCS Luxembourg", value: siteConfig.registration },
+      sameAs: [siteConfig.registerUrl],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      inLanguage: "en",
+      publisher: { "@id": `${siteConfig.url}/#organization` },
+    },
+  ],
 };
 
 export default function HomePage() {

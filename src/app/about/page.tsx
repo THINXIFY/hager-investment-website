@@ -9,14 +9,14 @@ import { AboutHero } from "@/components/sections/about/AboutHero";
 import { AboutHeritage } from "@/components/sections/about/AboutHeritage";
 import { AboutPerspective } from "@/components/sections/about/AboutPerspective";
 import { sharedOpenGraph, siteConfig } from "@/config/site";
-import { aboutHero } from "@/content/about";
+import { seo } from "@/content/seo";
 import { corporate } from "@/content/home";
 
 export const metadata: Metadata = {
-  title: "About Us",
-  description: aboutHero.supporting,
+  title: seo.about.title,
+  description: seo.about.description,
   alternates: { canonical: "/about" },
-  openGraph: { ...sharedOpenGraph, title: `About ${siteConfig.name}`, description: aboutHero.supporting, url: "/about" },
+  openGraph: { ...sharedOpenGraph, title: `${seo.about.title} | ${siteConfig.name}`, description: seo.about.description, url: "/about" },
 };
 
 /** Verified facts only. */

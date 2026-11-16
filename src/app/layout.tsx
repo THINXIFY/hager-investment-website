@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { REVIEW_MODE_FORCED, reviewModeScript } from "@/config/review";
 import { shareImage, sharedOpenGraph, siteConfig } from "@/config/site";
+import { seo } from "@/content/seo";
 
 import "./globals.css";
 
@@ -27,19 +28,19 @@ const interTight = Inter_Tight({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name}: Patient Capital, Enduring Value`,
+    default: seo.home.title,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  description: seo.home.description,
   applicationName: siteConfig.name,
   alternates: { canonical: "/" },
   openGraph: {
     ...sharedOpenGraph,
-    title: siteConfig.name,
-    description: siteConfig.tagline,
+    title: seo.home.title,
+    description: seo.home.description,
     url: "/",
   },
-  twitter: { card: "summary_large_image", title: siteConfig.name, description: siteConfig.tagline, images: [shareImage] },
+  twitter: { card: "summary_large_image", title: seo.home.title, description: seo.home.description, images: [shareImage] },
   formatDetection: { telephone: false, email: false, address: false },
   /* Google Search Console ownership (2026-11-16). */
   verification: { google: "-WQPAdbHgJvA-aHCKw8RyP6GZnqtJN08TNW1ikTOytM" },

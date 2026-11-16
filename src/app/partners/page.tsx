@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 import { ScrollAnimations } from "@/components/motion/ScrollAnimations";
 import { PtClosing, PtGallery, PtHero, PtRelationships } from "@/components/sections/partners/Partners";
 import { sharedOpenGraph, siteConfig } from "@/config/site";
-import { ptHero } from "@/content/partners";
+import { seo } from "@/content/seo";
 
 export const metadata: Metadata = {
-  title: "Partners",
-  description: ptHero.description,
+  title: seo.partners.title,
+  description: seo.partners.description,
   alternates: { canonical: "/partners" },
-  openGraph: { ...sharedOpenGraph, title: `Partners | ${siteConfig.name}`, description: ptHero.description, url: "/partners" },
+  openGraph: { ...sharedOpenGraph, title: `${seo.partners.title} | ${siteConfig.name}`, description: seo.partners.description, url: "/partners" },
 };
 
 export default function PartnersPage() {

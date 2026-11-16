@@ -7,13 +7,14 @@ import { ExFeature } from "@/components/sections/expertise/ExFeature";
 import { ExHero } from "@/components/sections/expertise/ExHero";
 import { ExThinking } from "@/components/sections/expertise/ExThinking";
 import { sharedOpenGraph, siteConfig } from "@/config/site";
+import { seo } from "@/content/seo";
 import { exHero } from "@/content/expertise";
 
 export const metadata: Metadata = {
-  title: "Services & Expertise",
-  description: exHero.description,
+  title: seo.expertise.title,
+  description: seo.expertise.description,
   alternates: { canonical: "/expertise" },
-  openGraph: { ...sharedOpenGraph, title: `Services & Expertise | ${siteConfig.name}`, description: exHero.description, url: "/expertise" },
+  openGraph: { ...sharedOpenGraph, title: `${seo.expertise.title} | ${siteConfig.name}`, description: seo.expertise.description, url: "/expertise" },
 };
 
 /** Verified organisation facts only; capabilities are proposed page content, not regulated services. */
