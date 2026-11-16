@@ -1,7 +1,9 @@
-import heroInterior from "@/assets/images/ex-hero-glass-interior.jpg";
 import { tbc } from "@/lib/content";
 
 import type { Link, Photo } from "./home";
+
+/* Expertise hero photograph supplied by the company (public/media, 2026-11-16) */
+import heroImage from "../../public/media/investment expertise hero.jpg";
 
 /* ==========================================================================
    Services & Expertise (EX-02 redesign). Copy as supplied by HAGER Investment.
@@ -20,7 +22,7 @@ export const exHero = {
   title: "Expertise Across Capital and Business.",
   description: "Explore the disciplines that inform strategic thinking across capital, assets, transactions and corporate development.",
   jump: { label: "View the six disciplines", href: "#services" } satisfies Link,
-  image: { src: heroInterior, alt: "A dark, glass-walled interior where warm light glows through a perforated metal screen" } satisfies Photo,
+  image: { src: heroImage, alt: "A businessman working on a laptop in front of a white brick wall printed with the word Investment" } satisfies Photo,
 };
 
 export type ServiceItem = { slug: string; name: string; body: string };

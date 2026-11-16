@@ -1,11 +1,13 @@
-import companyFacade from "@/assets/images/about-company-glass-facade.jpg";
-import forwardThames from "@/assets/images/about-forward-thames.jpg";
 import themeClarity from "@/assets/images/about-theme-clarity-glass.jpg";
 import themeContinuity from "@/assets/images/about-theme-continuity-arches.jpg";
 import themePerspective from "@/assets/images/about-theme-perspective-city.jpg";
 import { tbc } from "@/lib/content";
 
 import { corporate, type Link, type Photo } from "./home";
+
+/* About photography supplied by the company (public/media, 2026-11-16) */
+import whoWeAreImage from "../../public/media/about-page-who-we-are-img.jpg";
+import widerViewImage from "../../public/media/about-page-wider-view-background.webp";
 
 /* ==========================================================================
    About Us content (AB-01).
@@ -38,8 +40,8 @@ export const aboutCompany = {
   titleEmphasis: "Contemporary Outlook.",
   body: "HAGER INVESTMENT is a Luxembourg-registered société anonyme established in 1993. Its corporate history forms part of an identity grounded in continuity and an outlook toward the future.",
   image: {
-    src: companyFacade,
-    alt: "A warm-toned glass facade with a long, regular rhythm of vertical fins",
+    src: whoWeAreImage,
+    alt: "Contemporary glass office buildings along a sunlit street under a clear blue sky",
   } satisfies Photo,
 };
 
@@ -92,8 +94,8 @@ export const aboutForward = {
   body: "Understanding these changes requires context, perspective and a thoughtful view of the future.",
   cta: { label: "Explore Our Investment Universe", href: "/investment-universe" } satisfies Link,
   image: {
-    src: forwardThames,
-    alt: "Aerial view along a river winding through a European city at first light",
+    src: widerViewImage,
+    alt: "Terracotta rooftops of a historic European city rising towards a cathedral",
   } satisfies Photo,
 };
 

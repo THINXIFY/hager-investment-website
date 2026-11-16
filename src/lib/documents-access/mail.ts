@@ -6,7 +6,7 @@ import { contactDetails, siteConfig } from "@/config/site";
  *
  *   RESEND_API_KEY        required. API key from Resend.
  *   DOCUMENTS_FROM_EMAIL  required. A sender on a domain verified with Resend,
- *                         e.g. "HAGER INVESTMENT <documents@your-domain>".
+ *                         e.g. "HAGER INVESTMENT <info@hager-investment.com>".
  *   DOCUMENTS_REPLY_TO    optional. Reply-to address (defaults to the confirmed contact email, if any).
  *   RESEND_API_URL        optional. Endpoint override (testing only).
  */

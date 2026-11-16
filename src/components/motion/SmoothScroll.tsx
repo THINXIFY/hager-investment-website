@@ -75,7 +75,7 @@ export function SmoothScroll() {
 
     const start = () => {
       if (lenis) return;
-      lenis = new Lenis({ autoRaf: false, lerp: 0.1, smoothWheel: true, syncTouch: false });
+      lenis = new Lenis({ autoRaf: false, lerp: 0.17, smoothWheel: true, syncTouch: false });
       lenis.on("scroll", ScrollTrigger.update);
       gsap.ticker.add(tick);
       gsap.ticker.lagSmoothing(0);

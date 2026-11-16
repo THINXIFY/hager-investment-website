@@ -31,10 +31,12 @@ PORT="${PORT:-4300}"
 compose() { docker compose --env-file "$ENV_FILE" "$@"; }
 
 # Folders the container writes to / reads from (owned by the container's user, uid 1001)
-mkdir -p data/otp private/documents
-if [ "$(stat -c %u data/otp)" != "1001" ]; then
-  chown -R 1001:1001 data/otp 2>/dev/null || sudo chown -R 1001:1001 data/otp
-fi
+mkdir -p data/otp data/image-cache private/documents
+for dir in data/otp data/image-cache; do
+  if [ "$(stat -c %u "$dir")" != "1001" ]; then
+    chown -R 1001:1001 "$dir" 2>/dev/null || sudo chown -R 1001:1001 "$dir"
+  fi
+done
 chmod 700 data/otp 2>/dev/null || true
 
 # ---- 1. Latest code -------------------------------------------------------------------------

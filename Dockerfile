@@ -37,7 +37,7 @@ ENV NODE_ENV=production \
 
 # Unprivileged user; writable folders for the image cache, the OTP store and the private PDFs.
 RUN addgroup -S -g 1001 nodejs && adduser -S -u 1001 -G nodejs nextjs \
- && mkdir -p .next/cache .data private/documents \
+ && mkdir -p .next/cache/images .data private/documents \
  && chown -R nextjs:nodejs .next .data private
 
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public

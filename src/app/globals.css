@@ -802,17 +802,17 @@
   width: 200%;
   background-repeat: repeat-x;
   background-size: 50% 100%;
-  mix-blend-mode: screen;
   will-change: transform;
+  contain: strict;
 }
 .hs-haze-a {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='700'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0026 0.0068' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.9 0 0 0 -0.78'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='700'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0026 0.0068' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.9 0 0 0 -0.78'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
   opacity: 0.52;
   -webkit-mask-image: linear-gradient(to top, #000 0%, #000 30%, transparent 80%);
   mask-image: linear-gradient(to top, #000 0%, #000 30%, transparent 80%);
 }
 .hs-haze-b {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='700'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0018 0.0052' numOctaves='4' seed='23' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.9 0 0 0 -0.78'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='700'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0018 0.0052' numOctaves='3' seed='23' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.9 0 0 0 -0.78'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
   opacity: 0.3;
   -webkit-mask-image: linear-gradient(to bottom, transparent 5%, #000 40%, #000 65%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 5%, #000 40%, #000 65%, transparent 100%);
@@ -938,4 +938,148 @@
 @media (prefers-reduced-motion: reduce) {
   .tm-card, .tm-card .tm-tile-grid, .tm-card .tm-tile-initials, .tm-card-rule { transition: none; }
   .tm-tile-initials { transform: none; }
+}
+
+/* ---------- Homepage statement: "Aperture" ---------- */
+/* A tall track with a sticky stage; --open, --zoom, --copy, --drift and each word's --lit come from
+   StatementAperture (0 → 1 with the scroll). */
+.st-track { height: 230svh; }
+@media (max-width: 63.999rem) { .st-track { height: 190svh; } }
+.st-stage {
+  /* The aperture: an oval (echoing the photograph's own oval opening) on the right on desktop,
+     low and centred on phones, that grows and recentres until it covers the screen. */
+  --cx0: 76%; --cy0: 50%; --rx0: 17%; --ry0: 37%;
+  --rx: calc(var(--rx0) + (95% - var(--rx0)) * var(--open, 0));
+  --ry: calc(var(--ry0) + (95% - var(--ry0)) * var(--open, 0));
+  --cx: calc(var(--cx0) + (50% - var(--cx0)) * var(--open, 0));
+  --cy: calc(var(--cy0) + (50% - var(--cy0)) * var(--open, 0));
+}
+@media (max-width: 63.999rem) {
+  .st-stage { --cx0: 50%; --cy0: 75%; --rx0: 40%; --ry0: 17%; --slide: 8%; }
+}
+.st-window { clip-path: ellipse(var(--rx) var(--ry) at var(--cx) var(--cy)); }
+/* Fine white ring tracing the aperture, and a slow teal ring orbiting it; both ease away as it opens */
+.st-ring {
+  left: calc(var(--cx0) - var(--rx0));
+  top: calc(var(--cy0) - var(--ry0));
+  width: calc(var(--rx0) * 2);
+  height: calc(var(--ry0) * 2);
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 0.4);
+  transform: scale(calc(1 + var(--open, 0) * 0.35));
+  opacity: calc(1 - var(--open, 0) * 2.4);
+}
+.st-ring-orbit {
+  border: 1px dashed rgb(17 123 137 / 0.75);
+  margin: -18px;
+  width: calc(var(--rx0) * 2 + 36px);
+  height: calc(var(--ry0) * 2 + 36px);
+  transform: scale(calc(1 + var(--open, 0) * 0.5)) rotate(calc(var(--p, 0) * 140deg));
+  opacity: calc(0.8 - var(--open, 0) * 2);
+}
+.st-zoom { transform: translateX(calc((1 - var(--open, 0)) * var(--slide, 30%))) scale(var(--zoom, 1.28)) rotate(calc((1 - var(--open, 0)) * -7deg)); transform-origin: 60% 45%; will-change: transform; }
+.st-shade {
+  background:
+    linear-gradient(90deg, rgb(9 11 13 / 0.92) 0%, rgb(9 11 13 / 0.68) 34%, rgb(9 11 13 / 0.25) 62%, rgb(9 11 13 / 0.1) 100%),
+    linear-gradient(to top, rgb(9 11 13 / 0.75) 0%, rgb(9 11 13 / 0) 40%),
+    linear-gradient(rgb(16 44 53 / 0.25), rgb(16 44 53 / 0.25));
+  opacity: calc(0.25 + var(--open, 0) * 0.75);
+}
+@media (max-width: 63.999rem) {
+  .st-shade { background: linear-gradient(to top, rgb(9 11 13 / 0.94) 0%, rgb(9 11 13 / 0.7) 45%, rgb(9 11 13 / 0.35) 100%); }
+}
+.st-haze { opacity: calc(0.35 + var(--open, 0) * 0.65); }
+
+/* Outlined wordmark gliding behind the copy */
+.st-mark {
+  font-size: clamp(7rem, 4rem + 14vw, 20rem);
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(255 255 255 / 0.12);
+  transform: translateX(calc(8vw - var(--drift, 0) * 48vw));
+  opacity: calc(0.4 + var(--open, 0) * 0.6);
+}
+
+/* Eyebrow rule extends as the section begins */
+.st-eyebrow-rule { transform: scaleX(calc(0.45 + var(--open, 0) * 0.55)); }
+
+/* Headline: each word lights from dim and soft to bright and sharp */
+.st-word {
+  display: inline-block;
+  opacity: calc(0.16 + var(--lit, 0) * 0.84);
+  transform: translateY(calc((1 - var(--lit, 0)) * 0.12em));
+}
+.st-word-em { color: rgb(255 255 255 / 0.72); }
+
+/* Supporting line and action rise in once the photograph has opened */
+.st-copy {
+  opacity: var(--copy, 0);
+  transform: translateY(calc((1 - var(--copy, 0)) * 28px));
+  visibility: visible;
+}
+.st-progress > span { transform: scaleY(var(--p, 0)); }
+
+/* Reduced motion: a single screen in its final state */
+.st-static { height: auto; }
+.st-static .st-stage { position: relative; }
+.st-static .st-word, .st-static .st-copy, .st-static .st-zoom, .st-static .st-mark { transform: none; filter: none; }
+.st-copy:focus-within { opacity: 1; transform: none; }
+
+/* ---------- About: "Looking Ahead" image: cinematic grade ---------- */
+/* 1. Film grade on the photograph itself: richer contrast, gently muted colour */
+.ab-fwd-img { filter: saturate(0.82) contrast(1.08) brightness(0.96); }
+/* 2. Teal/dusk duotone: Petrol settles into the shadows, warmth survives in the lights */
+.ab-fwd-tone {
+  background:
+    linear-gradient(160deg, rgb(16 44 53 / 0.55) 0%, rgb(16 44 53 / 0.25) 45%, rgb(120 70 40 / 0.18) 100%);
+  mix-blend-mode: soft-light;
+}
+.ab-fwd-tone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgb(16 44 53 / 0.32), rgb(16 44 53 / 0.32));
+  mix-blend-mode: multiply;
+}
+/* 3. Light bloom breaking through the cloud, upper right */
+.ab-fwd-bloom {
+  background:
+    radial-gradient(55% 60% at 78% 8%, rgb(190 232 236 / 0.4) 0%, rgb(17 123 137 / 0.18) 40%, transparent 70%),
+    radial-gradient(35% 40% at 92% 30%, rgb(255 236 210 / 0.14) 0%, transparent 70%),
+    radial-gradient(45% 55% at 8% 100%, rgb(17 123 137 / 0.42) 0%, rgb(17 123 137 / 0.12) 45%, transparent 75%);
+  mix-blend-mode: screen;
+}
+/* 4. A faint band of light drifting across every few seconds */
+.ab-fwd-sweep::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -40%;
+  width: 35%;
+  background: linear-gradient(100deg, transparent 0%, rgb(255 255 255 / 0.07) 45%, rgb(190 232 236 / 0.10) 50%, rgb(255 255 255 / 0.07) 55%, transparent 100%);
+  transform: skewX(-12deg);
+  mix-blend-mode: screen;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ab-fwd-sweep::before { animation: ab-fwd-sweep 9s var(--ease-in-out-premium) 1.5s infinite; }
+}
+@keyframes ab-fwd-sweep {
+  0% { transform: translateX(0) skewX(-12deg); opacity: 0; }
+  15% { opacity: 1; }
+  60%, 100% { transform: translateX(420%) skewX(-12deg); opacity: 0; }
+}
+/* 5. Shading for the statements: base, left side, top and an edge vignette */
+.ab-fwd-shade {
+  background:
+    linear-gradient(to bottom, rgb(9 11 13 / 0.5) 0%, rgb(9 11 13 / 0) 24%),
+    linear-gradient(to top, rgb(9 11 13 / 0.94) 0%, rgb(9 11 13 / 0.84) 13%, rgb(9 11 13 / 0.64) 28%, rgb(9 11 13 / 0.38) 44%, rgb(9 11 13 / 0.15) 58%, rgb(9 11 13 / 0) 70%),
+    linear-gradient(90deg, rgb(9 11 13 / 0.55) 0%, rgb(9 11 13 / 0.2) 38%, rgb(9 11 13 / 0) 62%),
+    radial-gradient(125% 105% at 55% 30%, rgb(9 11 13 / 0) 50%, rgb(9 11 13 / 0.55) 100%);
+}
+/* 6. Fine film grain (procedural, no download) */
+.ab-fwd-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
 }

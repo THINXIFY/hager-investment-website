@@ -1,9 +1,5 @@
 import type { StaticImageData } from "next/image";
 
-import aboutArchitecture from "@/assets/images/about-architecture.jpg";
-import expertiseAssetManagement from "@/assets/images/expertise-asset-management.jpg";
-import expertiseRealEstate from "@/assets/images/expertise-real-estate.jpg";
-import expertiseStrategy from "@/assets/images/expertise-strategy.jpg";
 import heroFilmPoster from "@/assets/images/hero-film-poster.jpg";
 import heroGrowth from "@/assets/images/hero-growth.jpg";
 import heroTeam from "@/assets/images/hero-team.jpg";
@@ -15,10 +11,16 @@ import sectorEnergy from "@/assets/images/sector-energy.jpg";
 import sectorHealthcare from "@/assets/images/sector-healthcare.jpg";
 import sectorIndustrial from "@/assets/images/sector-industrial.jpg";
 import sectorLogistics from "@/assets/images/sector-logistics.jpg";
-import sectorRealEstate from "@/assets/images/sector-real-estate.jpg";
 import sectorTechnology from "@/assets/images/sector-technology.jpg";
-import statementTowersFog from "@/assets/images/statement-towers-fog.jpg";
 import { tbc, type Copy } from "@/lib/content";
+
+/* Homepage photography supplied by the company (public/media, 2026-11-16) */
+import homeBuildingPerspective from "../../public/media/home-building-perspective.jpg";
+import homeAboutTeam from "../../public/media/homepage-about.webp";
+import homeAssetManagement from "../../public/media/expertise-home-asset-managementr.jpg";
+import homeInvestmentStrategy from "../../public/media/expertise-home-investment-strategy.jpg";
+import homeRealEstateDusk from "../../public/media/investment-homepage-real-estate.jpg";
+import homeRealEstateRooftops from "../../public/media/investment-universe-home-real-estate.webp";
 
 /* ==========================================================================
    Homepage content.
@@ -75,8 +77,8 @@ export const heroSlides: HeroSlide[] = [
     cta: { label: "Discover HAGER INVESTMENT", href: "#about" },
     image: { src: heroFilmPoster, alt: "Glass towers reflecting a golden evening sky, seen from below" },
     focus: "50% 50%",
-    /** Supplied ambient film (CloudFront); recommend self-hosting before launch. */
-    video: "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261022_042705_33276241-8c58-4a03-b4e8-765d6c616afd.mp4",
+    /** Supplied ambient film, compressed for the web (24 MB → 3.5 MB) and served from the site. */
+    video: "/videos/home-hero.mp4",
   },
   {
     id: "perspectives",
@@ -107,7 +109,7 @@ export const about = {
   detail: "Established 1993 · Luxembourg",
   cta: { label: "Discover Our Company", href: "/about" },
   /** Illustrative architecture only: no ownership or occupancy is implied. */
-  image: { src: aboutArchitecture, alt: "Corner of a contemporary brick and metal-clad building against a deep blue sky" },
+  image: { src: homeAboutTeam, alt: "Business professionals standing outside a contemporary glass and timber office building" },
 };
 
 /* ---------- 03 Investment universe (PROPOSED) ---------- */
@@ -128,7 +130,7 @@ export const sectors = {
       slug: "real-estate",
       name: "Real Estate",
       summary: "Well-located, well-managed real assets with the resilience to endure across market cycles.",
-      image: { src: sectorRealEstate, alt: "White modular facade of a contemporary residential building" },
+      image: { src: homeRealEstateDusk, alt: "A residential district beside a lake at sunset, its windows lit" },
     },
     {
       slug: "energy",
@@ -191,14 +193,14 @@ export const expertise = {
       name: "Investment Strategy",
       body: "Understanding opportunities through research, market context and long-term thinking.",
       surface: "photo",
-      image: { src: expertiseStrategy, alt: "Aerial view of a dense city skyline meeting the water" },
+      image: { src: homeInvestmentStrategy, alt: "A team in a meeting room reviewing a chart presented on a screen" },
     },
     {
       slug: "asset-management",
       name: "Asset Management",
       body: "Perspectives on asset quality, oversight and sustainable value.",
       surface: "photo",
-      image: { src: expertiseAssetManagement, alt: "Contemporary building facade with dark cladding and large windows" },
+      image: { src: homeAssetManagement, alt: "Advisers around a table reviewing charts on a tablet and printed reports" },
     },
     {
       slug: "mergers-acquisitions",
@@ -223,7 +225,7 @@ export const expertise = {
       name: "Real Estate Investment",
       body: "Considering location, asset fundamentals and enduring property value.",
       surface: "photo",
-      image: { src: expertiseRealEstate, alt: "Modern residential towers against a clear sky" },
+      image: { src: homeRealEstateRooftops, alt: "City rooftops and apartment buildings under a clear sky" },
     },
   ] satisfies Service[],
 };
@@ -235,7 +237,7 @@ export const statement = {
   body: "Every opportunity begins with a broader perspective on what matters today and what may endure tomorrow.",
   cta: { label: "Explore Our Approach", href: "/approach" },
   /** Illustrative architecture only: no ownership or occupancy is implied. */
-  image: { src: statementTowersFog, alt: "Office towers rising into low cloud, seen from street level" },
+  image: { src: homeBuildingPerspective, alt: "A curved glass tower and the sky framed by an oval opening, seen from below" },
 };
 
 /* ---------- 06 Approach (PROPOSED, conceptual) ---------- */

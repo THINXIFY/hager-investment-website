@@ -18,7 +18,7 @@ import { MegaPanel } from "./MegaMenu";
 const MENU_ID = "mobile-navigation";
 const DESKTOP_QUERY = "(min-width: 64rem)";
 const OPEN_DELAY = 90;
-const CLOSE_DELAY = 220;
+const CLOSE_DELAY = 100;
 const EASE = [0.2, 0.7, 0.1, 1] as const;
 
 const hashOf = (href: string) => href.slice(href.indexOf("#") + 1);
@@ -326,8 +326,8 @@ export function SiteHeader() {
               className="pointer-events-auto fixed inset-0 -z-10 hidden bg-obsidian/40 lg:block"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease: EASE }}
+              exit={{ opacity: 0, transition: { duration: 0.18, ease: EASE } }}
+              transition={{ duration: 0.3, ease: EASE }}
               onClick={() => closeMega(0)}
               onMouseEnter={() => closeMega()}
             />

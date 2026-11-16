@@ -204,7 +204,7 @@ export function MegaPanel({ which, onNavigate, onMouseEnter }: { which: MegaKey;
       className="mega-panel pointer-events-auto absolute inset-x-0 top-full hidden pt-2.5 pb-10 lg:block"
       initial={reduce ? false : { clipPath: "inset(0 0 100% 0)" }}
       animate={{ clipPath: "inset(0 0 0% 0)" }}
-      exit={reduce ? { opacity: 0, transition: { duration: 0 } } : { clipPath: "inset(0 0 100% 0)", transition: { duration: 0.32, ease: [0.65, 0, 0.35, 1] } }}
+      exit={reduce ? { opacity: 0, transition: { duration: 0 } } : { clipPath: "inset(0 0 100% 0)", transition: { duration: 0.18, ease: [0.4, 0, 1, 1] } }}
       transition={{ duration: 0.5, ease: [0.65, 0, 0.35, 1] }}
     >
       <div className="container-site">

@@ -35,7 +35,9 @@ export function ExHero() {
         </div>
         {/* A single warm light sweep crosses the frame after load */}
         <div aria-hidden="true" className="ex-hero-sweep pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-[linear-gradient(100deg,rgb(255_214_160/0)_0%,rgb(255_214_160/0.14)_50%,rgb(255_214_160/0)_100%)]" />
-        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,rgb(9_11_13/0.82)_0%,rgb(9_11_13/0.45)_45%,rgb(9_11_13/0.05)_75%)]" />
+        {/* Even dark tint over the whole photograph, then deeper shading behind the copy */}
+        <div aria-hidden="true" className="absolute inset-0 bg-[rgb(9_11_13/0.5)]" />
+        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,rgb(9_11_13/0.88)_0%,rgb(9_11_13/0.62)_45%,rgb(9_11_13/0.2)_80%)]" />
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[40%] bg-[linear-gradient(to_top,rgb(9_11_13/0.85),rgb(9_11_13/0))]" />
         <div data-hero-veil="" aria-hidden="true" className="absolute inset-0 bg-obsidian opacity-0" />
       </div>

@@ -55,13 +55,18 @@ export function AboutForward() {
             sizes="100vw"
             quality={85}
             placeholder="blur"
-            className="photo-img object-cover object-[50%_58%]"
+            className="photo-img ab-fwd-img object-cover object-[50%_58%]"
           />
         </div>
-        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(to_top,rgb(9_11_13/0.86)_0%,rgb(9_11_13/0.55)_30%,rgb(9_11_13/0)_62%)]" />
+        {/* Cinematic overlay: teal/dusk duotone, light bloom, a slow light sweep, shading for the statements, fine grain */}
+        <div aria-hidden="true" className="ab-fwd-tone pointer-events-none absolute inset-0" />
+        <div aria-hidden="true" className="ab-fwd-shade pointer-events-none absolute inset-0" />
+        <div aria-hidden="true" className="ab-fwd-bloom pointer-events-none absolute inset-0" />
+        <div aria-hidden="true" className="ab-fwd-sweep pointer-events-none absolute inset-0 overflow-hidden" />
+        <div aria-hidden="true" className="ab-fwd-grain pointer-events-none absolute inset-0" />
 
         <figcaption className="container-site absolute inset-x-0 bottom-0 pb-[clamp(2.25rem,5vw,4.5rem)]">
-          <p className="font-display text-[clamp(2.125rem,1.2rem+3.4vw,4.75rem)] leading-[1.02] font-normal tracking-[-0.045em] text-white">
+          <p className="font-display text-[clamp(2.125rem,1.2rem+3.4vw,4.75rem)] leading-[1.02] font-normal tracking-[-0.045em] text-white [text-shadow:0_2px_24px_rgb(9_11_13/0.45)]">
             {aboutForward.statements.map((s, i) => (
               <span key={s} className="-mb-[0.1em] block overflow-hidden pb-[0.1em]">
                 <span data-frame-line="" className={cn("block", i === 1 && "md:pl-[10%]", i === 2 && "text-white/78 italic md:pl-[20%]")}>

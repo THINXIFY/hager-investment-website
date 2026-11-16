@@ -1,8 +1,6 @@
-import closingGlass from "@/assets/images/iv-closing-glass.jpg";
 import connectAutomation from "@/assets/images/iv-connect-automation.jpg";
 import connectFreightRail from "@/assets/images/iv-connect-freight-rail.jpg";
 import connectReservoir from "@/assets/images/iv-connect-energy-reservoir.jpg";
-import facadeAngles from "@/assets/images/iv-facade-angles.jpg";
 import heroNight from "@/assets/images/iv-hero-night-corridor.jpg";
 import sectorAgriculture from "@/assets/images/iv-sector-agriculture.jpg";
 import sectorAi from "@/assets/images/iv-sector-ai.jpg";
@@ -18,6 +16,10 @@ import sectorTechnology from "@/assets/images/iv-sector-technology.jpg";
 import { tbc } from "@/lib/content";
 
 import type { Link, Photo } from "./home";
+
+/* Investment Universe photography supplied by the company (public/media, 2026-11-16) */
+import biggerPictureImage from "../../public/media/investment-universe page - The Bigger Picture.jpg";
+import exploreFurtherImage from "../../public/media/investment universe Explore Further.jpg";
 
 /* ==========================================================================
    Investment Universe (IV-02 redesign). Copy as supplied by HAGER Investment.
@@ -43,7 +45,7 @@ export const ivPerspective = {
   title: "A Broader View of Progress.",
   lead: "Industries are shaped by changing economic conditions, technological developments and evolving human needs.",
   body: "From physical infrastructure to intelligent systems, understanding these connections provides a clearer perspective on the forces influencing tomorrow's economy.",
-  image: { src: facadeAngles, alt: "Angular metal balconies forming a layered architectural rhythm" } satisfies Photo,
+  image: { src: biggerPictureImage, alt: "A hand holding a rising bar chart above a desk with reports, a laptop and a notebook" } satisfies Photo,
   /** The three forces named in the lead sentence. */
   forces: [
     { name: "Economic Conditions", body: "Growth, capital and demand set the context in which every industry operates." },
@@ -189,5 +191,5 @@ export const ivClosing = {
   title: "Explore Our Broader Expertise.",
   body: "Continue exploring the perspectives and proposed capabilities presented across HAGER INVESTMENT.",
   cta: { label: "Discover Our Expertise", href: "/expertise" } satisfies Link,
-  image: { src: closingGlass, alt: "A faceted glass facade dissolving into a pale sky" } satisfies Photo,
+  image: { src: exploreFurtherImage, alt: "A paper cut-out of a rising arrow held up against glass office towers and a blue sky" } satisfies Photo,
 };

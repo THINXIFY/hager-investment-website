@@ -23,6 +23,8 @@ services:
       - "127.0.0.1:${HAGER_PORT:-4300}:3000"
     volumes:
       - ./data/otp:/app/.data
+      # Optimised-image cache kept across deploys, so visitors never wait for images to be re-processed
+      - ./data/image-cache:/app/.next/cache/images
       - ./private/documents:/app/private/documents:ro
     restart: unless-stopped
     security_opt:
