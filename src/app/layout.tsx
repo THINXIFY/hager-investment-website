@@ -41,6 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title: siteConfig.name, description: siteConfig.tagline, images: [shareImage] },
   formatDetection: { telephone: false, email: false, address: false },
+  /* Google Search Console ownership (2026-11-16). */
+  verification: { google: "-WQPAdbHgJvA-aHCKw8RyP6GZnqtJN08TNW1ikTOytM" },
 };
 
 export const viewport: Viewport = {
