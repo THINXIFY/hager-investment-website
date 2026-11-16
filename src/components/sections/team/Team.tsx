@@ -87,15 +87,16 @@ function MemberCard({ m, n, featured = false }: { m: TeamMember; n: number; feat
       id={`member-${m.slug}`}
       aria-labelledby={`member-${m.slug}-name`}
       data-seq=""
-      className={cn("tm-card group/card relative scroll-mt-28 rounded-[22px] bg-white p-2.5", featured ? "grid gap-2.5 md:grid-cols-12" : "flex flex-col gap-2.5")}
+      className={cn("tm-card group/card relative min-w-0 scroll-mt-28 rounded-[22px] bg-white p-2.5",featured ? "grid gap-2.5 md:grid-cols-12" : "flex flex-col gap-2.5")}
     >
+      {/* Large monogram tile from 640px up; phones use a compact badge beside the name */}
       <MonogramTile
         initials={m.initials}
         label={tier?.short ?? ""}
         large={featured}
-        className={cn("rounded-[16px]", featured ? "aspect-[16/10] md:col-span-5 md:aspect-auto md:min-h-[24rem]" : "aspect-[16/10]")}
+        className={cn("hidden rounded-[16px] sm:block", featured ? "aspect-[16/10] md:col-span-5 md:aspect-auto md:min-h-[24rem]" : "aspect-[16/10]")}
       />
-      <div className={cn("flex flex-1 flex-col px-[clamp(1rem,2.4vw,2rem)] pt-4 pb-3", featured && "md:col-span-7 md:justify-center md:px-[clamp(1.5rem,4vw,4rem)] md:py-8")}>
+      <div className={cn("flex min-w-0 flex-1 flex-col px-3.5 pt-4 pb-2 sm:px-[clamp(1rem,2.4vw,2rem)] sm:pb-3", featured && "md:col-span-7 md:justify-center md:px-[clamp(1.5rem,4vw,4rem)] md:py-8")}>
         <div className="flex items-center justify-between gap-3">
           <span className="tm-pill inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[0.75rem] font-medium tracking-[0.04em] text-petrol">
             <span aria-hidden="true" className="size-1.5 rounded-full bg-teal" />
@@ -103,17 +104,29 @@ function MemberCard({ m, n, featured = false }: { m: TeamMember; n: number; feat
           </span>
           <span aria-hidden="true" className="font-display text-[0.9375rem] text-(--fg-subtle) tabular-nums">{pad(n)}</span>
         </div>
-        <h3 id={`member-${m.slug}-name`} className={cn("mt-5 font-display font-normal tracking-[-0.035em] text-obsidian", featured ? "text-[clamp(2.125rem,1.5rem+2.2vw,3.5rem)] leading-[1.02]" : "text-[clamp(1.75rem,1.4rem+1.1vw,2.375rem)] leading-[1.06]")}>
-          {m.name}
-        </h3>
-        <span aria-hidden="true" className="tm-card-rule my-5 block h-px w-12 origin-left bg-teal" />
-        <p className={cn("flex-1 text-(--fg-muted)", featured ? "max-w-[38rem] text-[clamp(1.0625rem,1rem+0.3vw,1.1875rem)] leading-[1.65]" : "text-[1rem] leading-[1.65]")}>{m.description}</p>
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-[14px] bg-porcelain/80 py-1 pr-2 pl-4">
-          <a href={`mailto:${m.email}`} aria-label={`Email ${m.name}: ${m.email}`} className="group/mail inline-flex min-h-11 min-w-0 items-center gap-2.5 text-[0.875rem] text-petrol [overflow-wrap:anywhere] transition-colors duration-300 hover:text-teal">
+        <div className="mt-4 flex items-center gap-4 sm:mt-5 sm:block">
+          <span aria-hidden="true" className="tm-badge grid size-14 shrink-0 place-items-center rounded-[14px] bg-petrol bg-[radial-gradient(circle_at_30%_20%,rgb(17_123_137/0.75),rgb(16_44_53)_65%)] shadow-[inset_0_0_0_1px_rgb(255_255_255/0.12)] font-display text-[1.25rem] tracking-[-0.03em] text-white sm:hidden">
+            {m.initials}
+          </span>
+          <h3 id={`member-${m.slug}-name`} className={cn("min-w-0 font-display font-normal tracking-[-0.035em] text-obsidian", featured ? "text-[clamp(1.875rem,1.5rem+2.2vw,3.5rem)] leading-[1.04]" : "text-[clamp(1.625rem,1.4rem+1.1vw,2.375rem)] leading-[1.06]")}>
+            {m.name}
+          </h3>
+        </div>
+        <span aria-hidden="true" className="tm-card-rule my-4 block h-px w-12 origin-left bg-teal sm:my-5" />
+        <p className={cn("flex-1 text-(--fg-muted)", featured ? "max-w-[38rem] text-[clamp(1rem,0.97rem+0.3vw,1.1875rem)] leading-[1.65]" : "text-[0.96875rem] leading-[1.65] sm:text-[1rem]")}>{m.description}</p>
+        <div className="mt-5 flex items-center justify-between gap-x-4 rounded-[14px] bg-porcelain/80 py-1 pr-1.5 pl-4 sm:mt-6 sm:flex-wrap sm:pr-2">
+          <a href={`mailto:${m.email}`} aria-label={`Email ${m.name}: ${m.email}`} className="group/mail inline-flex min-h-12 min-w-0 flex-1 items-center gap-2.5 text-[0.875rem] text-petrol transition-colors duration-300 hover:text-teal sm:min-h-11 sm:flex-none">
             <MailIcon className="transition-transform duration-300 group-hover/mail:-translate-y-px" />
-            <span>{m.email}</span>
+            <span className="min-w-0 py-2 text-[0.8125rem] leading-snug [overflow-wrap:anywhere] sm:py-0 sm:text-[0.875rem]">{m.email}</span>
+            {/* Phones: a clear tap target at the end of the row */}
+            <span aria-hidden="true" className="ml-auto grid size-9 shrink-0 place-items-center rounded-full bg-white text-teal shadow-[0_1px_2px_rgb(16_44_53/0.08)] sm:hidden">
+              <svg viewBox="0 0 16 16" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+            </span>
           </a>
-          <CopyButton value={m.email} label="Copy" ariaLabel={`Copy ${m.name}'s email address`} className="rounded-full px-3 text-(--fg-subtle) hover:bg-white hover:text-petrol" />
+          {/* Copy is for desktop; on phones a tap opens the mail app */}
+          <span className="hidden sm:contents">
+            <CopyButton value={m.email} label="Copy" ariaLabel={`Copy ${m.name}'s email address`} className="rounded-full px-3 text-(--fg-subtle) hover:bg-white hover:text-petrol" />
+          </span>
         </div>
       </div>
     </article>
@@ -140,7 +153,7 @@ export function TmMembers() {
           </p>
         </div>
 
-        <div data-seq-group="0.12" className="grid gap-[clamp(1rem,2vw,1.5rem)] md:grid-cols-2">
+        <div data-seq-group="0.12" className="grid gap-3.5 sm:gap-[clamp(1rem,2vw,1.5rem)] md:grid-cols-2">
           {lead ? (
             <div className="md:col-span-2">
               <MemberCard m={lead} n={1} featured />

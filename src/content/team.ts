@@ -53,7 +53,7 @@ export const team: TeamMember[] = [
     tier: "directors",
     description:
       "As Co-Director, Eugenio supports strategic planning and organizational coordination, bringing a considered approach to corporate matters, collaborative leadership, and the evaluation of long term business priorities and opportunities.",
-    email: "eugenio.pietro.varga@hager-investment.com",
+    email: "eugenio.p@hager-investment.com",
   },
   {
     slug: "joseph-friedman",

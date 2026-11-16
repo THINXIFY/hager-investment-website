@@ -281,9 +281,9 @@ export function SiteHeader() {
               <Link
                 href={contactNavItem.href}
                 aria-current={isCurrent(contactNavItem.href) ? "page" : undefined}
-                className="hdr-cta group/cta inline-flex items-center gap-3 rounded-full py-1.5 pr-1.5 pl-4 text-[0.8125rem] font-medium tracking-[0.01em] lg:pl-5"
+                className="hdr-cta group/cta hidden items-center gap-3 rounded-full py-1.5 pr-1.5 pl-4 text-[0.8125rem] font-medium tracking-[0.01em] sm:inline-flex lg:pl-5"
               >
-                <span className="max-sm:sr-only">{contactNavItem.label}</span>
+                <span>{contactNavItem.label}</span>
                 <span aria-hidden="true" className="hdr-cta-dot grid size-8 place-items-center rounded-full lg:size-9">
                   <ArrowRightIcon className="size-3.5 transition-transform duration-500 ease-premium group-hover/cta:-rotate-45" />
                 </span>
