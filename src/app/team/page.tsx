@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 
 import { ScrollAnimations } from "@/components/motion/ScrollAnimations";
 import { TmClosing, TmHero, TmMembers } from "@/components/sections/team/Team";
-import { siteConfig } from "@/config/site";
+import { sharedOpenGraph, siteConfig } from "@/config/site";
 import { team, tmHero } from "@/content/team";
 
 export const metadata: Metadata = {
   title: "Our Team",
   description: tmHero.description,
   alternates: { canonical: "/team" },
-  openGraph: { title: `Our Team | ${siteConfig.name}`, description: tmHero.description, url: "/team" },
+  openGraph: { ...sharedOpenGraph, title: `Our Team | ${siteConfig.name}`, description: tmHero.description, url: "/team" },
 };
 
 /** Structured data: the supplied names, roles and email addresses only. */

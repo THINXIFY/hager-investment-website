@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { REVIEW_MODE_FORCED, reviewModeScript } from "@/config/review";
-import { siteConfig } from "@/config/site";
+import { shareImage, sharedOpenGraph, siteConfig } from "@/config/site";
 
 import "./globals.css";
 
@@ -34,14 +34,12 @@ export const metadata: Metadata = {
   applicationName: siteConfig.name,
   alternates: { canonical: "/" },
   openGraph: {
-    type: "website",
-    siteName: siteConfig.name,
-    locale: siteConfig.locale,
+    ...sharedOpenGraph,
     title: siteConfig.name,
     description: siteConfig.tagline,
     url: "/",
   },
-  twitter: { card: "summary_large_image", title: siteConfig.name, description: siteConfig.tagline },
+  twitter: { card: "summary_large_image", title: siteConfig.name, description: siteConfig.tagline, images: [shareImage] },
   formatDetection: { telephone: false, email: false, address: false },
 };
 

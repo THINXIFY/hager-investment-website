@@ -8,7 +8,7 @@ import { AboutForward } from "@/components/sections/about/AboutForward";
 import { AboutHero } from "@/components/sections/about/AboutHero";
 import { AboutHeritage } from "@/components/sections/about/AboutHeritage";
 import { AboutPerspective } from "@/components/sections/about/AboutPerspective";
-import { siteConfig } from "@/config/site";
+import { sharedOpenGraph, siteConfig } from "@/config/site";
 import { aboutHero } from "@/content/about";
 import { corporate } from "@/content/home";
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "About Us",
   description: aboutHero.supporting,
   alternates: { canonical: "/about" },
-  openGraph: { title: `About ${siteConfig.name}`, description: aboutHero.supporting, url: "/about" },
+  openGraph: { ...sharedOpenGraph, title: `About ${siteConfig.name}`, description: aboutHero.supporting, url: "/about" },
 };
 
 /** Verified facts only. */

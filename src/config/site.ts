@@ -21,6 +21,27 @@ export const siteConfig = {
   registerPdf: "/document/hager-investment-register-extract-B44483.pdf",
 } as const;
 
+/**
+ * Link-preview card (WhatsApp, LinkedIn, Facebook, X, Slack…): the H icon above the wordmark on
+ * Porcelain, 1200×630. The icon sits in the centre so square crops (WhatsApp) still show it.
+ * Every page's `openGraph` spreads `sharedOpenGraph`, because a page-level `openGraph` replaces the
+ * layout's one entirely (without it, inner pages would share without an image).
+ */
+export const shareImage = {
+  url: "/og/hager-investment-share.jpg",
+  width: 1200,
+  height: 630,
+  type: "image/jpeg",
+  alt: "HAGER INVESTMENT",
+};
+
+export const sharedOpenGraph = {
+  type: "website" as const,
+  siteName: siteConfig.name,
+  locale: siteConfig.locale,
+  images: [shareImage],
+};
+
 /** Every primary navigation item is its own page. Insights & Perspectives is postponed (HD-03) and kept out of public navigation. */
 export const primaryNav: NavItem[] = [
   { label: "Home", href: "/" },

@@ -3,14 +3,14 @@ import { notFound } from "next/navigation";
 
 import { ScrollAnimations } from "@/components/motion/ScrollAnimations";
 import { Impressum } from "@/components/sections/impressum/Impressum";
-import { IMPRESSUM_APPROVED, impressumVisible, siteConfig } from "@/config/site";
+import { IMPRESSUM_APPROVED, impressumVisible, sharedOpenGraph, siteConfig } from "@/config/site";
 import { imHero } from "@/content/impressum";
 
 export const metadata: Metadata = {
   title: imHero.title,
   description: imHero.description,
   alternates: { canonical: "/impressum" },
-  openGraph: { title: `${imHero.title} | ${siteConfig.name}`, description: imHero.description, url: "/impressum" },
+  openGraph: { ...sharedOpenGraph, title: `${imHero.title} | ${siteConfig.name}`, description: imHero.description, url: "/impressum" },
   /* Draft: never indexed before approval (and not served at all in production; see impressumVisible). */
   robots: IMPRESSUM_APPROVED ? undefined : { index: false, follow: false },
 };

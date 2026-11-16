@@ -6,14 +6,14 @@ import { InFeature } from "@/components/sections/insights/InFeature";
 import { InFeatured } from "@/components/sections/insights/InFeatured";
 import { InMasthead } from "@/components/sections/insights/InMasthead";
 import { InPerspectives } from "@/components/sections/insights/InPerspectives";
-import { siteConfig } from "@/config/site";
+import { sharedOpenGraph, siteConfig } from "@/config/site";
 import { inHero } from "@/content/insights";
 
 export const metadata: Metadata = {
   title: "Insights & Perspectives",
   description: inHero.description,
   alternates: { canonical: "/insights" },
-  openGraph: { title: `Insights & Perspectives | ${siteConfig.name}`, description: inHero.description, url: "/insights" },
+  openGraph: { ...sharedOpenGraph, title: `Insights & Perspectives | ${siteConfig.name}`, description: inHero.description, url: "/insights" },
 };
 
 /** A collection page only: the sample perspectives are not published articles, so none are listed as such. */

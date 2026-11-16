@@ -6,14 +6,14 @@ import { ApConsiderations } from "@/components/sections/approach/ApConsideration
 import { ApHero } from "@/components/sections/approach/ApHero";
 import { ApPhilosophy } from "@/components/sections/approach/ApPhilosophy";
 import { ApStages } from "@/components/sections/approach/ApStages";
-import { siteConfig } from "@/config/site";
+import { sharedOpenGraph, siteConfig } from "@/config/site";
 import { apHero } from "@/content/approach";
 
 export const metadata: Metadata = {
   title: "Our Approach",
   description: apHero.description,
   alternates: { canonical: "/approach" },
-  openGraph: { title: `Our Approach | ${siteConfig.name}`, description: apHero.description, url: "/approach" },
+  openGraph: { ...sharedOpenGraph, title: `Our Approach | ${siteConfig.name}`, description: apHero.description, url: "/approach" },
 };
 
 /** Verified organisation facts only; the approach is proposed page content. */

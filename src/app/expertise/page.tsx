@@ -6,14 +6,14 @@ import { ExDirectory } from "@/components/sections/expertise/ExDirectory";
 import { ExFeature } from "@/components/sections/expertise/ExFeature";
 import { ExHero } from "@/components/sections/expertise/ExHero";
 import { ExThinking } from "@/components/sections/expertise/ExThinking";
-import { siteConfig } from "@/config/site";
+import { sharedOpenGraph, siteConfig } from "@/config/site";
 import { exHero } from "@/content/expertise";
 
 export const metadata: Metadata = {
   title: "Services & Expertise",
   description: exHero.description,
   alternates: { canonical: "/expertise" },
-  openGraph: { title: `Services & Expertise | ${siteConfig.name}`, description: exHero.description, url: "/expertise" },
+  openGraph: { ...sharedOpenGraph, title: `Services & Expertise | ${siteConfig.name}`, description: exHero.description, url: "/expertise" },
 };
 
 /** Verified organisation facts only; capabilities are proposed page content, not regulated services. */

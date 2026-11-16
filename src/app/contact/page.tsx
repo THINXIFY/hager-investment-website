@@ -6,14 +6,14 @@ import { CtEnquiry } from "@/components/sections/contact/CtEnquiry";
 import { CtFaq } from "@/components/sections/contact/CtFaq";
 import { CtHero } from "@/components/sections/contact/CtHero";
 import { CtOffice } from "@/components/sections/contact/CtOffice";
-import { contactDetails, siteConfig } from "@/config/site";
+import { contactDetails, sharedOpenGraph, siteConfig } from "@/config/site";
 import { ctFaq, ctHero } from "@/content/contact";
 
 export const metadata: Metadata = {
   title: "Contact",
   description: ctHero.description,
   alternates: { canonical: "/contact" },
-  openGraph: { title: `Contact | ${siteConfig.name}`, description: ctHero.description, url: "/contact" },
+  openGraph: { ...sharedOpenGraph, title: `Contact | ${siteConfig.name}`, description: ctHero.description, url: "/contact" },
 };
 
 const [street, locality] = contactDetails.address ?? [];
