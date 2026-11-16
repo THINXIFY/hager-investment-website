@@ -77,12 +77,14 @@ Save with `Ctrl+O`, `Enter`, `Ctrl+X`. Then protect the file:
 chmod 600 .env.production
 ```
 
-### Step 4: Private documents (optional)
-The approved PDFs sent after email verification are **not** in GitHub. From **your computer** (PowerShell), upload them:
+### Step 4: Resend key and private documents (from your PC)
+The Resend API key and the confidential PDFs are **never** stored on GitHub. Copy them straight from your computer to the VPS. In **PowerShell on your PC**, in the project folder:
 ```powershell
-scp "C:\path\to\HAGER-Company-Profile.pdf" root@2.25.169.72:/opt/hager-investment/private/documents/
+powershell -ExecutionPolicy Bypass -File deploy\upload-private.ps1
 ```
-Use the file names listed in `private/documents/README.md`.
+It uploads every PDF in `private\documents`, saves `RESEND_API_KEY` from your `.env.local` into the VPS's `.env.production` (plus a fresh `OTP_HASH_SECRET` if none is set), and makes the files readable only by the website. Enter the VPS password when asked.
+
+Run it again whenever you change the documents or the key, then `./deploy.sh` on the VPS.
 
 ### Step 5: Build and start the website
 ```bash

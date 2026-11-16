@@ -38,6 +38,9 @@ for dir in data/otp data/image-cache; do
   fi
 done
 chmod 700 data/otp 2>/dev/null || true
+# Private PDFs: readable by the website container only
+(chown -R 1001:1001 private/documents && chmod 700 private/documents) 2>/dev/null \
+  || sudo sh -c "chown -R 1001:1001 private/documents && chmod 700 private/documents" || true
 
 # ---- 1. Latest code -------------------------------------------------------------------------
 say "Fetching the latest code ($BRANCH)"
