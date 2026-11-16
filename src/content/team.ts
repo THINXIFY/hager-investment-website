@@ -26,14 +26,15 @@ export const teamTiers: { id: TeamTier; label: string; short: string }[] = [
 
 export const team: TeamMember[] = [
   {
-    slug: "joseph-a",
-    name: "Joseph A.",
-    initials: "JA",
+    /* Placeholder until the CEO's name is announced (company request, 2026-11-16). */
+    slug: "ceo",
+    name: "Coming Soon",
+    initials: "CEO",
     role: "Chief Executive Officer (CEO)",
     tier: "leadership",
     description:
-      "As Chief Executive Officer, Joseph provides overall leadership and strategic direction, supporting thoughtful decision making, organizational coordination, and a clear focus on the company’s long term corporate priorities.",
-    email: "joseph.a@hager-investment.com",
+      "As Chief Executive Officer, the CEO provides overall leadership and strategic direction, supporting thoughtful decision making, organizational coordination, and a clear focus on the company’s long term corporate priorities.",
+    email: "ceoname@hager-investment.com",
   },
   {
     slug: "raphael-varga",
