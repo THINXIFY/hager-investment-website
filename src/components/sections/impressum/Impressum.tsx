@@ -203,7 +203,7 @@ export function Impressum() {
             <ul data-seq-group="0.08" className="border-t border-white/15">
               {imLegal.links.map((l) => (
                 <li key={l.href} data-seq="" className="border-b border-white/15">
-                  <Link href={l.href} className="group relative flex items-center justify-between gap-6 py-5">
+                  <Link href={l.href} {...("external" in l && l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="group relative flex items-center justify-between gap-6 py-5">
                     <span>
                       <span className="block font-display text-[clamp(1.25rem,1.1rem+0.5vw,1.5rem)] tracking-[-0.02em] text-white">{l.label}</span>
                       <span className="mt-1 block text-[0.8125rem] text-white/55 transition-colors duration-500 group-hover:text-silver">{l.note}</span>

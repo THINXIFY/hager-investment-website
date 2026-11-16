@@ -1,8 +1,10 @@
 import { RequestDocumentsButton } from "@/components/documents/RequestDocumentsButton";
 import { LockDocIcon } from "@/components/documents/DocumentsIcons";
+import { ButtonLink } from "@/components/ui/Button";
 import { CopyButton } from "@/components/ui/CopyButton";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { SiteLink as Link } from "@/components/ui/SiteLink";
+import { siteConfig } from "@/config/site";
 import { ctCompany } from "@/content/contact";
 
 /**
@@ -32,6 +34,12 @@ export function CtCompany() {
               </div>
             ))}
           </dl>
+          <div data-reveal="" className="mt-8">
+            <ButtonLink href={siteConfig.registerUrl} target="_blank" rel="noopener noreferrer" variant="dark" arrow>
+              View Company Register Record
+              <span className="sr-only"> (opens Pappers.lu in a new tab)</span>
+            </ButtonLink>
+          </div>
           <p data-reveal="" className="mt-6 text-[0.875rem] text-(--fg-muted)">
             Full corporate details are available in our{" "}
             <Link href="/legal-notice" className="text-petrol underline decoration-petrol/30 underline-offset-[3px] hover:decoration-teal">

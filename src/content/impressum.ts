@@ -73,6 +73,7 @@ export const imLegal = {
   links: [
     { label: "Legal Notice", href: "/legal-notice", note: "Website ownership and terms of use" },
     { label: "Privacy Policy", href: "/privacy-policy", note: "How personal data is processed" },
+    { label: "Company Register Record", href: siteConfig.registerUrl, note: "RCS B44483 on Pappers.lu (opens in a new tab)", external: true },
     { label: "Contact HAGER INVESTMENT", href: "/contact", note: "Enquiries and correspondence" },
   ],
 };

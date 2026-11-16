@@ -15,6 +15,8 @@ export const siteConfig = {
   registration: "B44483",
   /** Legal Entity Identifier (public GLEIF record). */
   lei: "5299000S19OU3ODKL056",
+  /** Public company-register record (RCS B44483) on Pappers.lu; supplied by the company. */
+  registerUrl: "https://www.pappers.lu/en/company/hager-investment-B44483",
 } as const;
 
 /** Every primary navigation item is its own page. Insights & Perspectives is postponed (HD-03) and kept out of public navigation. */
@@ -71,7 +73,8 @@ export const footerNav: NavItem[] = [
  * Impressum (IM-01) is kept out of production until approved: while IMPRESSUM_APPROVED is false the
  * route returns 404 and is not linked, unless NEXT_PUBLIC_SHOW_DRAFTS=1 is set (local / staging preview).
  */
-export const IMPRESSUM_APPROVED = false;
+/* Published at the company's request (2026-11-16). */
+export const IMPRESSUM_APPROVED = true;
 export const impressumVisible = IMPRESSUM_APPROVED || process.env.NEXT_PUBLIC_SHOW_DRAFTS === "1";
 
 /** The legal collection: linked in the footer only, never the header. */

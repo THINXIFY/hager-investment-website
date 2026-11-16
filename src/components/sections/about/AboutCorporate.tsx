@@ -1,7 +1,9 @@
 import { RequestDocumentsButton } from "@/components/documents/RequestDocumentsButton";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Section } from "@/components/ui/Section";
+import { ButtonLink } from "@/components/ui/Button";
 import { SiteLink as Link } from "@/components/ui/SiteLink";
+import { siteConfig } from "@/config/site";
 import { aboutCorporate } from "@/content/about";
 
 import { CopyValue } from "./CopyValue";
@@ -69,6 +71,10 @@ export function AboutCorporate() {
                   </div>
                 ))}
               </dl>
+              <ButtonLink href={siteConfig.registerUrl} target="_blank" rel="noopener noreferrer" variant="outline" arrow className="mt-6 w-full text-white sm:w-auto">
+                View Company Register Record
+                <span className="sr-only"> (opens Pappers.lu in a new tab)</span>
+              </ButtonLink>
             </div>
             <div className="border-t border-white/12 pt-6">
               <p className="text-[0.875rem] leading-[1.55] text-white/70">Private documents are available by email after a quick verification.</p>
