@@ -2,7 +2,6 @@ import type { StaticImageData } from "next/image";
 
 import heroFilmPoster from "@/assets/images/hero-film-poster.jpg";
 import heroGrowth from "@/assets/images/hero-growth.jpg";
-import heroTeam from "@/assets/images/hero-team.jpg";
 import insightCorporate from "@/assets/images/insight-corporate.jpg";
 import insightEnergy from "@/assets/images/insight-energy.jpg";
 import insightMarkets from "@/assets/images/insight-markets.jpg";
@@ -16,6 +15,7 @@ import { tbc, type Copy } from "@/lib/content";
 
 /* Homepage photography supplied by the company (public/media, 2026-11-16) */
 import homeBuildingPerspective from "../../public/media/home-building-perspective.jpg";
+import homeSlide2 from "../../public/media/home-slide-2.jpg";
 import homeAboutTeam from "../../public/media/homepage-about.webp";
 import homeAssetManagement from "../../public/media/expertise-home-asset-managementr.jpg";
 import homeInvestmentStrategy from "../../public/media/expertise-home-investment-strategy.jpg";
@@ -86,7 +86,7 @@ export const heroSlides: HeroSlide[] = [
     eyebrow: "Investment Perspectives",
     titleLines: ["Looking Beyond", "*the Immediate.*"],
     cta: { label: "Explore Our Investment Universe", href: "/investment-universe" },
-    image: { src: heroTeam, alt: "Colleagues reviewing documents and a laptop together in a bright modern office" },
+    image: { src: homeSlide2, alt: "Silhouettes of people in a bright office, overlaid with market charts and data" },
     focus: "56% 40%",
   },
   {

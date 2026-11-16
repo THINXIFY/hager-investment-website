@@ -62,7 +62,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: reviewModeScript }} />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <p
           role="note"
           className="review-only fixed bottom-4 left-4 z-[90] border border-dashed border-teal bg-white px-3 py-1.5 text-[0.6875rem] font-semibold tracking-[0.14em] text-teal uppercase shadow-sm"

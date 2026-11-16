@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 
+import { ButtonLink } from "@/components/ui/Button";
 import { CopyButton } from "@/components/ui/CopyButton";
 import { CopyText } from "@/components/ui/Placeholder";
 import { SiteLink as Link } from "@/components/ui/SiteLink";
@@ -197,6 +198,12 @@ export function Impressum() {
               {imLegal.body.map((p) => (
                 <p key={p}>{p}</p>
               ))}
+            </div>
+            <div data-reveal="" className="mt-9">
+              <ButtonLink href={siteConfig.registerPdf} target="_blank" rel="noopener" variant="light" arrow>
+                Company Register Extract (PDF)
+                <span className="sr-only"> (opens in a new tab)</span>
+              </ButtonLink>
             </div>
           </div>
           <nav aria-label="Further reading" className="col-span-12 self-end lg:col-span-5 lg:col-start-8">

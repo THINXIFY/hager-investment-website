@@ -17,6 +17,8 @@ export const siteConfig = {
   lei: "5299000S19OU3ODKL056",
   /** Public company-register record (RCS B44483) on Pappers.lu; supplied by the company. */
   registerUrl: "https://www.pappers.lu/en/company/hager-investment-B44483",
+  /** Company register extract (PDF, Pappers.lu, 2026-11-15); supplied by the company for public download. */
+  registerPdf: "/document/hager-investment-register-extract-B44483.pdf",
 } as const;
 
 /** Every primary navigation item is its own page. Insights & Perspectives is postponed (HD-03) and kept out of public navigation. */

@@ -34,10 +34,14 @@ export function CtCompany() {
               </div>
             ))}
           </dl>
-          <div data-reveal="" className="mt-8">
+          <div data-reveal="" className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href={siteConfig.registerUrl} target="_blank" rel="noopener noreferrer" variant="dark" arrow>
               View Company Register Record
               <span className="sr-only"> (opens Pappers.lu in a new tab)</span>
+            </ButtonLink>
+            <ButtonLink href={siteConfig.registerPdf} target="_blank" rel="noopener" variant="outline" arrow className="text-petrol">
+              Company Register Extract (PDF)
+              <span className="sr-only"> (opens in a new tab)</span>
             </ButtonLink>
           </div>
           <p data-reveal="" className="mt-6 text-[0.875rem] text-(--fg-muted)">

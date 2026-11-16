@@ -5,7 +5,6 @@ import { Closing } from "@/components/sections/home/Closing";
 import { Expertise } from "@/components/sections/home/expertise/Expertise";
 import { Foundations } from "@/components/sections/home/Foundations";
 import { Hero } from "@/components/sections/home/hero/Hero";
-import { Insights } from "@/components/sections/home/Insights";
 import { Philosophy } from "@/components/sections/home/Philosophy";
 import { Sectors } from "@/components/sections/home/sectors/Sectors";
 import { Statement } from "@/components/sections/home/Statement";
@@ -48,8 +47,6 @@ export default function HomePage() {
       {/* 08 */}
       <Philosophy />
       {/* 09 */}
-      <Insights />
-      {/* 10 */}
       <Closing />
       <ScrollAnimations />
     </>
