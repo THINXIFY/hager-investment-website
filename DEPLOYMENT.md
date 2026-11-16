@@ -78,7 +78,7 @@ chmod 600 .env.production
 ```
 
 ### Step 4: Resend key and private documents (from your PC)
-The Resend API key and the confidential PDFs are **never** stored on GitHub. Copy them straight from your computer to the VPS. In **PowerShell on your PC**, in the project folder:
+The private PDFs come from GitHub with the code (at the company's request), so the VPS receives them with `git pull` / `./deploy.sh`. The Resend API key is **never** stored on GitHub: copy it straight from your computer to the VPS. In **PowerShell on your PC**, in the project folder:
 ```powershell
 powershell -ExecutionPolicy Bypass -File deploy\upload-private.ps1
 ```
@@ -238,4 +238,4 @@ If `check-server.sh` shows that something other than Nginx owns ports 80/443 (a 
 | `deploy/check-server.sh` | Read-only server check |
 | `deploy/nginx/` | Nginx site files (HTTP-only bootstrap, full HTTPS site, proxy settings) |
 | `data/otp/` (VPS only) | One-time-code store for private documents |
-| `private/documents/` (VPS only) | Approved PDFs (not in GitHub) |
+| `private/documents/` | Private PDFs sent after email verification (versioned in GitHub; readable only by the website on the VPS) |

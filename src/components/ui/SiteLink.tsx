@@ -21,7 +21,6 @@ const LIVE_ROUTES = new Set<string>([
   "/team",
   "/legal-notice",
   "/privacy-policy",
-  "/disclaimer",
   "/impressum",
   ...sectorPages.map((p) => p.href),
   ...servicePages.map((p) => p.href),

@@ -41,10 +41,8 @@ yarn-error.log*
 next-env.d.ts
 !.env.example
 
-# private documents flow: OTP challenge store and the confidential PDFs themselves
+# private documents flow: OTP challenge store (the PDFs in private/documents are versioned at the company's request)
 /.data
-/private/documents/*
-!/private/documents/README.md
 !.env.production.example
 
 # deployment: server-side data (OTP store) lives next to the code on the VPS

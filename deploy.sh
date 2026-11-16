@@ -44,6 +44,8 @@ chmod 700 data/otp 2>/dev/null || true
 
 # ---- 1. Latest code -------------------------------------------------------------------------
 say "Fetching the latest code ($BRANCH)"
+# Permission locks on private/documents must not count as local changes
+git config core.fileMode false
 git fetch --prune origin "$BRANCH"
 git checkout -q "$BRANCH"
 git pull --ff-only origin "$BRANCH"

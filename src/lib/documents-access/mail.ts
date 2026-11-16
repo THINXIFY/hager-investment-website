@@ -115,8 +115,8 @@ export function renderDocumentsEmail(filenames: string[]) {
 <tr><td style="padding:0 40px 8px;"><h1 style="margin:10px 0 0;font-family:Georgia,'Times New Roman',serif;font-weight:normal;font-size:30px;line-height:36px;color:#ffffff;">Your documents are attached</h1></td></tr>
 <tr><td style="padding:12px 40px 8px;"><p style="margin:0;font-size:15px;line-height:24px;color:${PLATINUM};">Thank you for verifying your email address. The documents you requested from HAGER INVESTMENT are attached to this message:</p></td></tr>
 <tr><td style="padding:10px 40px 6px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #27434d;">${list}</table></td></tr>
-<tr><td style="padding:16px 40px 26px;"><p style="margin:0;font-size:13px;line-height:20px;color:${SILVER};">These documents are provided for information and are confidential to the recipient. They do not constitute an offer, investment advice or a commitment of any kind.</p></td></tr>`,
+<tr><td style="padding:16px 40px 26px;"><p style="margin:0;font-size:13px;line-height:20px;color:${SILVER};">These documents are confidential to the recipient. To discuss any of the opportunities they describe, simply reply to this email.</p></td></tr>`,
   );
-  const text = `HAGER INVESTMENT - Private Documents\n\nThank you for verifying your email address. The documents you requested are attached:\n\n${filenames.map((f) => `- ${f}`).join("\n")}\n\nThese documents are provided for information and are confidential to the recipient. They do not constitute an offer, investment advice or a commitment of any kind.\n\n${footerLine()}`;
+  const text = `HAGER INVESTMENT - Private Documents\n\nThank you for verifying your email address. The documents you requested are attached:\n\n${filenames.map((f) => `- ${f}`).join("\n")}\n\nThese documents are confidential to the recipient. To discuss any of the opportunities they describe, simply reply to this email.\n\n${footerLine()}`;
   return { subject: "Your requested HAGER INVESTMENT documents", html, text };
 }

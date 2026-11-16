@@ -364,7 +364,7 @@ export const closing = {
 /* ---------- Footer ---------- */
 export const legal = {
   disclaimer: tbc(
-    "Regulatory status, disclaimer and risk warnings to be supplied by HAGER Investment's legal and compliance advisers.",
+    "Legal Notice and Privacy Policy to be approved by HAGER Investment before launch.",
     "",
   ) as Copy,
 };

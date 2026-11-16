@@ -4,6 +4,10 @@ const nextConfig: NextConfig = {
   // Self-contained server bundle for the Docker image (see Dockerfile / DEPLOYMENT.md)
   output: "standalone",
   reactStrictMode: true,
+  // The Investment Disclaimer page was retired; keep old links working
+  async redirects() {
+    return [{ source: "/disclaimer", destination: "/legal-notice", permanent: true }];
+  },
   poweredByHeader: false,
   cacheComponents: true,
   partialPrefetching: true,

@@ -66,15 +66,13 @@ export const imPublisher = {
 export const imLegal = {
   heading: "Legal Information & Transparency.",
   body: [
-    "Information published on this website is intended for general corporate and informational purposes.",
-    "Investment-related descriptions, market commentary and strategic perspectives do not constitute an offer of financial products or personalized investment advice.",
-    "Company registration and LEI identification do not, by themselves, establish authorization to provide regulated financial services.",
-    "For further information about the website's legal conditions, personal data processing and investment-related disclosures, please consult the documents below.",
+    "HAGER INVESTMENT is an investment company established in Luxembourg in 1993 and incorporated as a société anonyme (S.A.).",
+    "The company offers investment opportunities to investors and partners. Prospective investors are welcome to contact us directly.",
+    "For further information about the website's legal conditions and personal data processing, please consult the documents below.",
   ],
   links: [
     { label: "Legal Notice", href: "/legal-notice", note: "Website ownership and terms of use" },
     { label: "Privacy Policy", href: "/privacy-policy", note: "How personal data is processed" },
-    { label: "Investment Disclaimer", href: "/disclaimer", note: "Investment-related disclosures" },
     { label: "Contact HAGER INVESTMENT", href: "/contact", note: "Enquiries and correspondence" },
   ],
 };

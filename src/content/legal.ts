@@ -4,7 +4,7 @@ import { tbc, type Copy } from "@/lib/content";
 import type { Link } from "./home";
 
 /* ==========================================================================
-   Legal collection (LG-01): Legal Notice, Privacy Policy, Investment Disclaimer.
+   Legal collection (LG-01): Legal Notice and Privacy Policy (the Investment Disclaimer was retired at the company's request).
 
    ALL TEXT IS DRAFT COPY supplied by HAGER Investment for company and legal
    review before publication. Review mode (?review=1) marks each document as a
@@ -36,7 +36,7 @@ export type LegalBlock =
 export type LegalSection = { id: string; title: string; blocks: LegalBlock[] };
 
 export type LegalDoc = {
-  slug: "legal-notice" | "privacy-policy" | "disclaimer";
+  slug: "legal-notice" | "privacy-policy";
   href: string;
   /** Footer and cross-link label. */
   label: string;
@@ -51,7 +51,7 @@ export type LegalDoc = {
 };
 
 /**
- * Set to true once HAGER Investment and its legal advisers approve the three documents.
+ * Set to true once HAGER Investment and its legal advisers approve the two documents.
  * Until then the pages are noindex and kept out of the sitemap (they remain linked in the footer).
  */
 export const LEGAL_APPROVED = false;
@@ -107,17 +107,17 @@ export const legalNotice: LegalDoc = {
       id: "about",
       title: "About HAGER INVESTMENT",
       blocks: [
-        { type: "p", text: "HAGER INVESTMENT is a Luxembourg-based investment company with a corporate identity established in 1993." },
-        { type: "p", text: "This website presents information about the company, its investment-related perspectives and areas of strategic interest." },
-        { type: "note", label: "Please note", text: "Descriptions of investment disciplines, corporate activities or strategic opportunities must be understood in their appropriate context. They do not, by themselves, constitute confirmation of a specific regulated service, investment mandate or financial product." },
+        { type: "p", text: "HAGER INVESTMENT is an investment company established in Luxembourg in 1993 and incorporated as a société anonyme (S.A.)." },
+        { type: "p", text: "The company invests across a broad range of sectors and offers investment opportunities to investors and partners who share its long-term perspective." },
+        { type: "p", text: "Prospective investors and partners are welcome to contact HAGER INVESTMENT directly to discuss current opportunities." },
       ],
     },
     {
       id: "website-information",
       title: "Website Information",
       blocks: [
-        { type: "p", text: "This website is presented by HAGER INVESTMENT for general corporate information and communication purposes." },
-        { type: "p", text: "The information is intended to provide an overview of the company's identity, perspectives and published content. HAGER INVESTMENT may revise or update website materials where appropriate." },
+        { type: "p", text: "This is the official website of HAGER INVESTMENT. It presents the company, its investment activities and the opportunities it offers." },
+        { type: "p", text: "HAGER INVESTMENT may revise or update website materials where appropriate." },
       ],
     },
     {
@@ -133,7 +133,7 @@ export const legalNotice: LegalDoc = {
       title: "Accuracy of Information",
       blocks: [
         { type: "p", text: "HAGER INVESTMENT seeks to present information clearly and responsibly. However, corporate information, market conditions and other website materials may change." },
-        { type: "p", text: "Visitors should verify material information before relying upon it for important business, financial or legal decisions." },
+        { type: "p", text: "For full details of any investment opportunity, please contact HAGER INVESTMENT directly." },
       ],
     },
     {
@@ -314,114 +314,4 @@ export const privacyPolicy: LegalDoc = {
   ],
 };
 
-/* -------------------------------------------------------- Investment Disclaimer */
-
-export const disclaimer: LegalDoc = {
-  slug: "disclaimer",
-  href: "/disclaimer",
-  label: "Investment Disclaimer",
-  eyebrow: "Important Information",
-  title: "Investment Disclaimer",
-  intro: "Important information concerning investment-related material, market commentary and the use of content published by HAGER INVESTMENT.",
-  meta: [
-    { term: "Document", value: "Investment Disclaimer" },
-    { term: "Jurisdiction", value: "Luxembourg" },
-    { term: "Last updated", value: pending("Date of approval") },
-  ],
-  summary: {
-    label: "In summary",
-    items: ["Not investment advice", "Not an offer or solicitation", "Investments involve risk, including loss of capital", "Past performance is not a reliable indicator of future results"],
-  },
-  sections: [
-    {
-      id: "general-information",
-      title: "General Information",
-      blocks: [
-        { type: "p", text: "HAGER INVESTMENT is a Luxembourg-based investment company." },
-        { type: "p", text: "Information published on this website is provided for general corporate, educational and informational purposes." },
-        { type: "p", text: "References to markets, investment opportunities, asset classes, sectors, business activities and strategic perspectives are intended to communicate general information and do not necessarily describe specific transactions or services available to the public." },
-      ],
-    },
-    {
-      id: "no-investment-advice",
-      title: "No Investment Advice",
-      blocks: [
-        { type: "p", text: "Nothing on this website should be interpreted as personalized investment, financial, legal, accounting or tax advice." },
-        { type: "p", text: "Website content does not take into consideration any particular person's financial situation, investment objectives, risk tolerance or individual circumstances." },
-        { type: "p", text: "Individuals should obtain appropriate independent professional advice before making decisions with financial or legal consequences." },
-      ],
-    },
-    {
-      id: "no-offer",
-      title: "No Offer or Solicitation",
-      blocks: [
-        { type: "p", text: "Unless expressly identified in an authorized and legally compliant offering document, the information on this website does not constitute an offer to sell, an invitation to purchase or a solicitation concerning any security, financial instrument, investment product or investment opportunity." },
-        { type: "p", text: "The website is not intended to serve as a prospectus, contractual offer or formal investment recommendation." },
-      ],
-    },
-    {
-      id: "investment-risks",
-      title: "Investment Risks",
-      blocks: [
-        { type: "p", text: "Investment activities may involve significant risks, including changes in market conditions, liquidity constraints, operational challenges, economic uncertainty and potential loss of capital." },
-        { type: "p", text: "The value of investments may fluctuate, and outcomes may differ materially from expectations." },
-        { type: "note", label: "Important", text: "No investment strategy or approach can eliminate all risks." },
-      ],
-    },
-    {
-      id: "forward-looking",
-      title: "Forward-Looking Information",
-      blocks: [
-        { type: "p", text: "Certain website materials may include opinions, expectations, estimates or statements relating to potential future developments." },
-        { type: "p", text: "Such statements are inherently subject to uncertainty and may differ from actual events or outcomes." },
-        { type: "p", text: "They should not be interpreted as guarantees of future performance, financial results or strategic success." },
-      ],
-    },
-    {
-      id: "historical-performance",
-      title: "Historical Performance",
-      blocks: [
-        { type: "p", text: "Where historical data or performance information is presented, it should be understood within its stated context." },
-        { type: "note", label: "Important", text: "Past performance is not a reliable indicator of future results. Historical examples, case studies and illustrative information should not be treated as promises of future performance." },
-        { type: "review", text: "Do not introduce performance data, returns or investment results unless separately verified and approved." },
-      ],
-    },
-    {
-      id: "regulatory",
-      title: "Geographic and Regulatory Considerations",
-      blocks: [
-        { type: "p", text: "Investment-related activities, services and financial products may be subject to different legal and regulatory requirements across jurisdictions." },
-        { type: "p", text: "Information published on this website is not directed at persons in any jurisdiction where its distribution or use would violate applicable law." },
-        { type: "note", label: "Please note", text: "Company registration in Luxembourg, including RCS registration or LEI identification, does not itself establish authorization to provide regulated financial services." },
-        { type: "review", text: "Do not claim that HAGER INVESTMENT is licensed, supervised or approved by the CSSF or another regulator unless verifiable authorization information is provided and legally reviewed." },
-      ],
-    },
-    {
-      id: "independent-assessment",
-      title: "Independent Assessment",
-      blocks: [
-        { type: "p", text: "Any assessment of an investment, transaction or business opportunity should consider relevant legal documents, financial information, risk disclosures, market circumstances and individual objectives." },
-        { type: "p", text: "Website content should not be the sole basis for any important financial or investment decision." },
-      ],
-    },
-    {
-      id: "third-parties",
-      title: "Website Information and Third Parties",
-      blocks: [
-        { type: "p", text: "Information may include general market observations, external references or material derived from third-party sources." },
-        { type: "p", text: "While care should be taken in preparing published content, information can become incomplete or outdated. Users should verify material facts independently." },
-        { type: "p", text: "Any exclusion or limitation of liability must remain subject to applicable mandatory law." },
-      ],
-    },
-    {
-      id: "further-information",
-      title: "Further Information",
-      blocks: [
-        { type: "p", text: "For general corporate enquiries concerning HAGER INVESTMENT, please refer to the official Contact page." },
-        { type: "link", link: { label: "Contact Us", href: "/contact" } },
-      ],
-    },
-  ],
-};
-
-export const legalDocs = [legalNotice, privacyPolicy, disclaimer] as const;
+export const legalDocs = [legalNotice, privacyPolicy] as const;

@@ -79,5 +79,4 @@ export const legalNav: NavItem[] = [
   { label: "Legal Notice", href: "/legal-notice" },
   ...(impressumVisible ? [{ label: "Impressum", href: "/impressum" }] : []),
   { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Investment Disclaimer", href: "/disclaimer" },
 ];
